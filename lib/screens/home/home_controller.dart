@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:notification_demo/notification_services/notification_services.dart';
@@ -6,6 +7,22 @@ import 'package:permission_handler/permission_handler.dart';
 /// This is the controller for the home screen
 class HomeController extends GetxController {
   final permissionHandler = Permission.notification;
+  final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
+
+  @override
+  void onInit() {
+    super.onInit();
+    _firebaseMessaging.requestPermission();
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+      print('Message data: ${message.data}');
+      if (message.notification != null) {
+        print('Message also contained a notification: ${message.notification}');
+      }
+    });
+    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
+      print('Message clicked! ${message.messageId}');
+    });
+  }
 
   Future<void> showNotification() async {
     final status = await permissionHandler.status;
@@ -16,7 +33,6 @@ class HomeController extends GetxController {
         body: "This is a notification",
       );
     } else {
-  
       showAdaptiveDialog(
         context: Get.context!,
         builder: (context) {
@@ -45,7 +61,7 @@ class HomeController extends GetxController {
   Future<void> scheduleNotification() async {
     final status = await permissionHandler.status;
     if (status.isGranted) {
-       NotificationServices().scheduleNotification(
+      NotificationServices().scheduleNotification(
         id: 0,
         title: "Hello",
         body: "This is a notification",
