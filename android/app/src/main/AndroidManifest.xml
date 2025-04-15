@@ -5,16 +5,18 @@
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" /> <!-- For Android 13+ -->
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" android:maxSdkVersion="32" />
     <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+
     <!-- Added for push notification -->
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/> 
     <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
     <application
         android:label="notification_demo"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
-        <!-- Added -->
+        <!-- Added for Local Notificataion -->
         <receiver
             android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver"
             android:exported="false" />

@@ -7,9 +7,6 @@ import 'package:notification_demo/navigation/app_pages.dart';
 import 'package:notification_demo/navigation/app_routes.dart';
 import 'package:notification_demo/notification_services/notification_services.dart';
 
-Future<void> _backgroundHandler(RemoteMessage message) async {
-  // Handle background message
-}
 
 void main() async {
   await GetStorage.init();
@@ -19,7 +16,6 @@ void main() async {
   FirebaseMessaging.onBackgroundMessage(_backgroundHandler);
   final fcmToken = await FirebaseMessaging.instance.getToken(vapidKey: "BKagOny0KF_2pCJQ3m....moL0ewzQ8rZu");
   print("FCM Token: $fcmToken");
-  
   runApp(const MyApp());
 } 
 
@@ -34,4 +30,9 @@ class MyApp extends StatelessWidget {
       getPages: AppPages.pages,
     );
   }
+}
+
+
+Future<void> _backgroundHandler(RemoteMessage message) async {
+  // Handle background message
 }

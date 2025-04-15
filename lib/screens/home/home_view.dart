@@ -17,7 +17,7 @@ class HomeView extends GetView<HomeController> {
               foregroundColor: Colors.white,
             ),
             onPressed: ()  {
-               controller.scheduleNotification();
+               controller.showNotification();
             },
             child: Text(
               "Press",

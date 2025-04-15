@@ -1,4 +1,3 @@
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:notification_demo/notification_services/notification_services.dart';
@@ -7,23 +6,8 @@ import 'package:permission_handler/permission_handler.dart';
 /// This is the controller for the home screen
 class HomeController extends GetxController {
   final permissionHandler = Permission.notification;
-  final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
 
-  @override
-  void onInit() {
-    super.onInit();
-    _firebaseMessaging.requestPermission();
-    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      print('Message data: ${message.data}');
-      if (message.notification != null) {
-        print('Message also contained a notification: ${message.notification}');
-      }
-    });
-    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
-      print('Message clicked! ${message.messageId}');
-    });
-  }
-
+  /// This method is used to show a notification
   Future<void> showNotification() async {
     final status = await permissionHandler.status;
     if (status.isGranted) {
@@ -55,9 +39,11 @@ class HomeController extends GetxController {
           );
         },
       );
+      
     }
   }
 
+/// This method is used to schedule a notification
   Future<void> scheduleNotification() async {
     final status = await permissionHandler.status;
     if (status.isGranted) {
