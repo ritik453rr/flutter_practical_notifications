@@ -5,8 +5,6 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'dart:convert';
 import 'package:googleapis_auth/auth_io.dart';
 import 'package:http/http.dart' as http;
-
-
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz;
 
@@ -30,9 +28,9 @@ class NotificationServices {
     final serviceAccountJson = {
       "type": "service_account",
       "project_id": "notifications-practical",
-      "private_key_id": "d27e19143abd822add469c07c231d314b51598e8",
+      "private_key_id": "4f2f6e10f77883a015d8666a8c22aac16880883e",
       "private_key":
-          "-----BEGIN PRIVATE KEY-----\MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDNhpIJWPdXpblN\nlBK6NhpCYr7hrrvmb5+r+mASrCmACZAQPv9uW96cWcMPo47rcEsEDT5BMi1HCISK\nJ4C1LkthFQ4DxVQD0xibds4l8KECCGeSXSf4kLb4O6553FghOb/i18wx3ZqivGUF\nFEi+DfqBFzhcZDq8DMzyFYKJDooqOesI6w4nZntOMFVPY2CZ/6ieu0hDPU/AN14N\ndKC32XdqjCPFv/wSJw/unES0PISP5vPKWtTS35C66MK/KGggkK/xqXWEWnFaMMRH\n4tzore6+EQqcWBYcZFi1qzLHzTP2sadCM3Gtw8Rw9LxbgcQQlmavK8OAZRDZ0vBD\nQGEjQM1jAgMBAAECggEAHTXjmp2A5f2hVRPXB4059TZ4n7XIcetqe7RlpDHA4jg5\nt/1kK2i2Pm2Jijb6UJ8Qol5Je1Wo1sAwqjwMEHQodX9bExEgLDz78diUWxMUpyfP\npJ9F14+l2akN1rcI9YvyKEj4dhvjZv60suCbqBtvf5pvwb3jFSgSltOUzmr5GyAH\n8uAXr+Ng1gS4Zi7TroLVDOywbTx1Stcjt4nPmSS+VtAadr3uDViQYBjjMDzKVuvy\nVB6nWxzE+W0iMYBxvyG01J1B1eTnZlyfIOqPXGqTclf5aJXwcJMev+DSshq2BgHa\n+QSbYulFOjV+/rKl1HALiSrMBhau16yiP91Qx/BcMQKBgQDveu6kINBzANS202XF\n6J65YKnA9p28JSSmRtQB3ExxfisIIxBdxllGMEVBkhpgSdI9TwEAzQisSzceJ//D\naBIhq7m8Rz3jIrlGMVzZg2nQdYD/7r7Owj0C8HfyqxWiopBhRC1m/l1xfRh5zF94\n4GPFJWmN+tWJX7VGE0Ne73pNkwKBgQDbtAXTYuOusX6ROdgXoEF2sMCzurM2kGlD\ndWXJhx/Q2aMFUp08uGBXL4aQxNNezxS4PS64Xdb/+EziGJPIea5Pb5YH5NOFuwS7\ntMV3XXZc5O9rCRVh1SgjDG/SvdE4c/k6z0xuU/hCqzpKfyXoN0dCLStmIWAtFgGF\n8yaPehbi8QKBgFNH9guf2b3UsSSvWXo8zk37Xq1bVjli1V75zKqk+PSTAtX+k6d4\n3fz5tmv6KjAIHBP0EI49v2FjetSC5oAHBh8tgBcI023U2oedjQObnsW+x1C5ryNq\nCxulkqESfCCl1f3tXrithsN71HIu75iyuB+MRiv46h+u5/RpqIkwUOD/AoGAeRci\nstxpMwqfALoJ8ROhoSJQQ38ecW9spQKahFWWYozhffiHs0THzKXkG/xvp2ypNdZ6\n3qDR9CjNbzwuj6sJOLz+ywEC2E04kaBTybNYnmCL2Mmb4F0UjyS2qUd3fg7lidVh\ngdmEFnK7YP3tTazR+JZeuh6hHJhpZIOceC3JWXECgYEAgYXSUh7MafIcDZAP0E5O\nVnWbDFpXqMCOvq0Z+PyIDKCjPnPdSNDuoKDQu5suKvq8zs7wYF512lBGhyNIG0e5\nE6DXwrbtroUr/eHK0NZ4ImOgNdl6eR0VDq/HpAFe+LidX784cu8A7PkcBSzdGM08\nfd5ETOIyn4OobaiWOZpxrMg=\n-----END PRIVATE KEY-----\n",
+          "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC0JQkO4NDpItOL\nIGWdfuB24zkwdg6d3k+9eUbMjATuxkWVejTypRIiQaDLVZc2eNXeNn3HzclferUk\nm2710BkWIAFeIAl6HxTuTDqev4RYif9S41yZooSGNv/jC4ksD8+R40PSukYEfjK1\nikRT5kELR72Ai93X+5YL/fncEDtsG6V4SQptYWSm2XoewxKVZM+tY2A5ewzQiAAs\nu+wfGgkTfMydId2a0c6g5t8b459+7XLejz8u7Jdboa51UDV+tBepBtVxPTdAOk96\nBGS0ilcya/r+68CvD8vst6TQlav0wXcMxGM8H3RAQGTttqraxwwueoXNlNmapBP7\nwaGKHGExAgMBAAECggEACjftlxv2jbrtf/9S9EedqPDDrjWMJ7VUFZ3a/8BTiU3S\n5aM8fKUTbcEGQ3Jz9OGO1B+IK/zG1vUpcE2m0ie/PIuNOE8d6oD32XqWeqnHcpRF\nWOjPuGFJHinhgvoFCmxNLGvVTY9GaHvWGYkhzhaKCv9DRxbn+xfoz35VHYAINt4U\nMyGkdZBwWtSjOGTcJikAypuSD14RpveVPkh9An6WqODicPVe8cX16zZWst/NCEtw\nxLxFEhj8CfdYH55LHy3a9Z5rPGyYoxBswu0VZ8x+ltPfi387UYt81boIIur4DboU\n4jWZXoiMDILj8BJj+oEgtPa5K9bEMVuL6Gqn0njhxwKBgQDivp5b+gAI9ptEMShK\nGzt4MiTf6wEHQqgBJLoZrzTXX5F+ukDLi9FPYZGmf8p098xLN7z5+S1WEoC+G0OR\nFpEM9ZkNnt3vQEn6mGmX/DpzNiHKmjqKFYWE9AoIZx2sgLyvJ8HgGyLz8UHDblDU\nNuPeCk6twctg5BasA7QcuKNxhwKBgQDLYzgwjdS1xxswqGz8Zhya9cMEdbhOr0rB\nKqn3av/MnQ2t9iyEZYBCkRcuZz7gFHByZA46t6d82yCWoA4JkbKUBDbNlSoC2YsL\nnuvLdD9WLGS+o8lc1Zo6N4Z4tbGANuSdLd5afYKbb8/x5ftWbHHrcNI1dH+LXdb3\n7jxCvCUlhwKBgDQlYoYEmL12+X5VT867NJIP9isJANOKoNiieaougRiHAg8DBqPJ\nI/n9lmGUQhtkYbdquitDAwoodzNBUeisJ++zC9/2CVRclKbtJlutxkN4z4yoq43W\nJT7OYQBNtqVVdg9SNWQ02XUApv8q/6vOc9k8xZtwVjWSPySQNXvlerFBAoGADQcw\nBDwxketNHJLNWGWaE3sGoPSBd9jWqwT2mjiqZgrxY2FPfLObwafVmk1Ww7fLdChg\nmPZGrkLDFaLvA0Hn9H9Im2agqEoTFA18AS5TGEwDsAqBzYaJOI1x+a15z0K05jSX\n96fug9JnuZEHxoNv0KsLbA0oVl8OdBc4mPXAU2UCgYBQEv4nmUJEgfULLJ6vSwel\n2GY+PR9tsq7I+XM4IatvAIUijYnGL2SNKlLkg2wEqVr33K2ba7cpyplCtGoC7a3C\n3m9zSxZHkynCwWX5XgrNyZKRUY40RrkTsbkE/wPObn691sxsdCW/EP8OL+ys29ie\n8bZp8W+PNh5qFaxXfgnMAA==\n-----END PRIVATE KEY-----\n",
       "client_email":
           "firebase-adminsdk-fbsvc@notifications-practical.iam.gserviceaccount.com",
       "client_id": "101835464023920156640",
@@ -58,18 +56,18 @@ class NotificationServices {
   }
 
   /// This method is used to send a push notification using the FCM API.
-  static Future<void> sendPushNotification() async {
+  static Future<void> sendPushNotification({
+    String? token,
+    String? title,
+    String? body,
+  }) async {
     final accessToken = await getAccessToken();
     const url =
         'https://fcm.googleapis.com/v1/projects/notifications-practical/messages:send';
     final Map<String, dynamic> notification = {
       "message": {
-        "token":
-            "fumXq7pkT6awtmQbq_DPoM:APA91bGhNOmp9iGfYIlQIwhteuQXQ3QJOjCcQ9YY9TE3qonnbi1_Au_ruR9JzMAFfyU59eRhNItoedZwzn1iZHpQr9913xM1y9p2PYExQA6g3Y-M_PVARAQ",
-        "notification": {
-          "title": "Vibe mate",
-          "body": "This is a test message",
-        },
+        "token": token,
+        "notification": {"title": title, "body": body},
       },
     };
     final response = await http.post(

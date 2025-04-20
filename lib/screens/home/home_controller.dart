@@ -8,7 +8,7 @@ class HomeController extends GetxController {
   final permissionHandler = Permission.notification;
 
   /// This method is used to show a notification
-  Future<void> showNotification() async {
+  Future<void> sendLocalNotification() async {
     final status = await permissionHandler.status;
     if (status.isGranted) {
       NotificationServices().showNotification(
@@ -39,11 +39,10 @@ class HomeController extends GetxController {
           );
         },
       );
-      
     }
   }
 
-/// This method is used to schedule a notification
+  /// This method is used to schedule a notification
   Future<void> scheduleNotification() async {
     final status = await permissionHandler.status;
     if (status.isGranted) {

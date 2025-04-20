@@ -30,6 +30,7 @@
                 <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
             </intent-filter>
         </receiver> <!-- Added/ -->
+        
         <activity
             android:name=".MainActivity"
             android:exported="true"
